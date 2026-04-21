@@ -2,8 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
-import css from "./NoteForm.module.css";
+import css from "./CreateNote.module.css";
 import { createNote } from "@/lib/api";
 import { useNoteStore } from "@/lib/store/noteStore";
 import type { Tag } from "@/types/note";
@@ -41,23 +40,10 @@ export default function NoteForm() {
         mutation.mutate(draft);
     };
 
-    const handleCancel = () => {
-        router.back();
-    };
-
     return (
         <form className={css.form} onSubmit={handleSubmit}>
-            <input
-                name="title"
-                value={draft.title}
-                onChange={handleChange}
-            />
-
-            <textarea
-                name="content"
-                value={draft.content}
-                onChange={handleChange}
-            />
+            <input name="title" value={draft.title} onChange={handleChange} />
+            <textarea name="content" value={draft.content} onChange={handleChange} />
 
             <select name="tag" value={draft.tag} onChange={handleChange}>
                 <option value="Work">Work</option>
@@ -67,7 +53,7 @@ export default function NoteForm() {
                 <option value="Shopping">Shopping</option>
             </select>
 
-            <button type="button" onClick={handleCancel}>
+            <button type="button" onClick={() => router.back()}>
                 Cancel
             </button>
 
