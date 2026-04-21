@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
-import { fetchNotes } from "@/lib/api";
+import { fetchNotes } from "@/lib/api/note";
 import css from "./NotesPage.module.css";
 
 import SearchBox from "@/components/SearchBox/SearchBox";
