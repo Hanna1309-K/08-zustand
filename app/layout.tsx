@@ -6,7 +6,6 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 
-// ✅ Roboto (обов’язково по ТЗ)
 const roboto = Roboto({
   weight: ["400", "500", "700"],
   subsets: ["latin"],
@@ -14,7 +13,6 @@ const roboto = Roboto({
   display: "swap",
 });
 
-// ✅ SEO metadata
 export const metadata: Metadata = {
   title: "NoteHub",
   description:
@@ -32,10 +30,9 @@ export const metadata: Metadata = {
   },
 };
 
-// ❗ modal ОБОВ’ЯЗКОВИЙ (як вимагає перевірка)
 type Props = {
   children: React.ReactNode;
-  modal: React.ReactNode;
+  modal?: React.ReactNode;
 };
 
 export default function RootLayout({ children, modal }: Props) {
