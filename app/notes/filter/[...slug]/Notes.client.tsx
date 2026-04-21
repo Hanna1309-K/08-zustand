@@ -22,7 +22,6 @@ export default function NotesClient({ tag }: Props) {
     const [debouncedSearch, setDebouncedSearch] = useState("");
     const [page, setPage] = useState(1);
 
-    // debounce search
     useEffect(() => {
         const timer = setTimeout(() => {
             setDebouncedSearch(search);
@@ -37,7 +36,7 @@ export default function NotesClient({ tag }: Props) {
     };
 
     const { data, isLoading, error } = useQuery({
-        queryKey: ["notes", debouncedSearch, page, tag],
+        queryKey: ["notes", debouncedSearch, page, tag ?? "all"],
         queryFn: () => fetchNotes(debouncedSearch, page, tag),
         placeholderData: keepPreviousData,
     });
@@ -48,6 +47,7 @@ export default function NotesClient({ tag }: Props) {
                 <SearchBox value={search} onChange={handleSearch} />
 
                 <button
+                    type="button"
                     className={css.button}
                     onClick={() => router.push("/notes/action/create")}
                 >

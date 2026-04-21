@@ -47,8 +47,17 @@ export default function NoteForm() {
 
     return (
         <form className={css.form} onSubmit={handleSubmit}>
-            <input name="title" value={draft.title} onChange={handleChange} />
-            <textarea name="content" value={draft.content} onChange={handleChange} />
+            <input
+                name="title"
+                value={draft.title}
+                onChange={handleChange}
+            />
+
+            <textarea
+                name="content"
+                value={draft.content}
+                onChange={handleChange}
+            />
 
             <select name="tag" value={draft.tag} onChange={handleChange}>
                 <option value="Work">Work</option>
