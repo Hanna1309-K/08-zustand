@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { fetchNoteById } from "@/lib/api/note";
+import { fetchNoteById } from "@/lib/api";
 
 type Props = {
     id: string;
